@@ -1,8 +1,8 @@
 <?php
 
-namespace Ductv44\PhpOop\Controllers\Admin;
+namespace Admin\PhpOop1\Controllers\Admin;
 
-use Ductv44\PhpOop\Commons\Controller;
+use Admin\PhpOop1\Commons\Controller;
 
 class DashboardController extends Controller
 {

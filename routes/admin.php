@@ -1,7 +1,7 @@
 <?php
 
-use Ductv44\PhpOop\Controllers\Admin\DashboardController;
-use Ductv44\PhpOop\Controllers\Admin\ProductController;
+use Admin\PhpOop1\Controllers\Admin\DashboardController;
+use Admin\PhpOop1\Controllers\Admin\ProductController;
 
 $router->mount('/admin', function () use ($router) {
 

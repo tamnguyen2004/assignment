@@ -1,16 +1,22 @@
 {
-    "name": "ductv44/php-oop",
+    "name": "admin/php-oop-1",
     "autoload": {
         "psr-4": {
-            "Ductv44\\PhpOop\\": "src/"
+            "Admin\\PhpOop1\\": "src/"
         },
         "files": [
             "helper.php"
         ]
     },
+    "authors": [
+        {
+            "name": "Đức Tâm",
+            "email": "111261479+tamnguyen2004@users.noreply.github.com"
+        }
+    ],
     "require": {
-        "bramus/router": "~1.6",
         "vlucas/phpdotenv": "^5.6",
+        "bramus/router": "^1.6",
         "doctrine/dbal": "^4.0",
         "eftec/bladeone": "^4.13",
         "rakit/validation": "^1.4"

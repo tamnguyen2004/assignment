@@ -1,6 +1,6 @@
 <?php 
 
-namespace Ductv44\PhpOop\Commons;
+namespace Admin\PhpOop1\Commons;
 
 class Helper
 {

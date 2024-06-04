@@ -1,8 +1,8 @@
 <?php 
 
-namespace Ductv44\PhpOop\Models;
+namespace Admin\PhpOop1\Models;
 
-use Ductv44\PhpOop\Commons\Model;
+use Admin\PhpOop1\Commons\Model;
 
 class Product extends Model
 {

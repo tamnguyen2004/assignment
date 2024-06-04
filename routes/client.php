@@ -1,5 +1,5 @@
 <?php
 
-use Ductv44\PhpOop\Controllers\Client\HomeController;
+use Admin\PhpOop1\Controllers\Client\HomeController;
 
 $router->get( '/', HomeController::class . '@index');
