@@ -48,6 +48,10 @@
                     <input type="text" class="form-control" id="name" placeholder="Enter name" value="{{ $product['name'] }}" name="name">
                 </div>
                 <div class="mb-3 mt-3">
+                    <label for="price" class="form-label">Price:</label>
+                    <input type="text" class="form-control" id="price" placeholder="Enter price" value="{{ $product['price'] }}" name="price">
+                </div>
+                <div class="mb-3 mt-3">
                     <label for="img_thumbnail" class="form-label">Img Thumbnail:</label>
                     <input type="file" class="form-control" id="img_thumbnail" placeholder="Enter img_thumbnail" name="img_thumbnail">
                     <img src="{{ asset($product['img_thumbnail']) }}" width="100px" alt="">

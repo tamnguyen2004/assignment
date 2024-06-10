@@ -48,6 +48,7 @@ class ProductController extends Controller
             'name'                  => 'required|max:100',
             'overview'              => 'max:500',
             'content'               => 'max:65000',
+            'price'                 => 'required',
             'img_thumbnail'         => 'uploaded_file:0,2048K,png,jpeg,jpg',
         ]);
         $validation->validate();
@@ -63,6 +64,7 @@ class ProductController extends Controller
                 'name'          => $_POST['name'],
                 'overview'      => $_POST['overview'],
                 'content'       => $_POST['content'],
+                'price'         => $_POST['price'],
             ];
 
             if (!empty($_FILES['img_thumbnail']) && $_FILES['img_thumbnail']['size'] > 0) {
@@ -121,6 +123,7 @@ class ProductController extends Controller
         $validation = $validator->make($_POST + $_FILES, [
             'category_id'           => 'required',
             'name'                  => 'required|max:100',
+            'price'                  => 'required|max:100',
             'overview'              => 'max:500',
             'content'               => 'max:65000',
             'img_thumbnail'         => 'uploaded_file:0,2048K,png,jpeg,jpg',
@@ -136,6 +139,7 @@ class ProductController extends Controller
             $data = [
                 'category_id'   => $_POST['category_id'],
                 'name'          => $_POST['name'],
+                'price'          => $_POST['price'],
                 'overview'      => $_POST['overview'],
                 'content'       => $_POST['content'],
                 'updated_at'    => date('Y-m-d H:i:s')

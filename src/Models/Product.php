@@ -11,7 +11,7 @@ class Product extends Model
     public function all() {
         return $this->queryBuilder
         ->select(
-            'p.id', 'p.category_id', 'p.name', 'p.img_thumbnail', 'p.created_at', 'p.updated_at',
+            'p.id', 'p.category_id', 'p.name', 'p.img_thumbnail','p.price', 'p.created_at', 'p.updated_at',
             'c.name as c_name'
         )
         ->from($this->tableName, 'p')
@@ -20,7 +20,7 @@ class Product extends Model
         ->fetchAllAssociative();
     }
 
-    public function paginate($page = 1, $perPage = 5)
+    public function paginate($page = 1, $perPage = 8)
     {
         $queryBuilder = clone($this->queryBuilder);
 
@@ -30,7 +30,7 @@ class Product extends Model
 
         $data = $queryBuilder
         ->select(
-            'p.id', 'p.category_id', 'p.name', 'p.img_thumbnail', 'p.created_at', 'p.updated_at',
+            'p.id', 'p.category_id', 'p.name', 'p.img_thumbnail','p.price', 'p.created_at', 'p.updated_at',
             'c.name as c_name'
         )
         ->from($this->tableName, 'p')
@@ -47,7 +47,7 @@ class Product extends Model
     {
         return $this->queryBuilder
             ->select(
-                'p.id', 'p.category_id', 'p.name', 'p.img_thumbnail', 'p.created_at', 'p.updated_at',
+                'p.id', 'p.category_id', 'p.name', 'p.img_thumbnail', 'p.created_at','p.price', 'p.updated_at',
                 'p.overview', 'p.content',
                 'c.name as c_name'
             )
