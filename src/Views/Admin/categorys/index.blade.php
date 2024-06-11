@@ -1,11 +1,11 @@
 @extends('layouts.master')
 
 @section('title')
-List user
+List category
 @endsection
 
 @section('content')
-<div class="row justify-content-center">
+<div class="row justify-content-center mt-5">
     <div class="col-lg-12">
         <div class="white_card card_height_100 mb_30">
             <div class="white_card_header">

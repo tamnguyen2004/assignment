@@ -5,7 +5,7 @@ List product
 @endsection
 
 @section('content')
-<div class="row justify-content-center">
+<div class="row justify-content-center mt-5">
     <div class="col-lg-12">
         <div class="white_card card_height_100 mb_30">
             <div class="white_card_header">
@@ -65,13 +65,12 @@ List product
                                 <td>{{ $product['created_at'] }}</td>
                                 <td>{{ $product['updated_at'] }}</td>
                                 <td>
-                                    <a href="{{ url("admin/products/{$product['id']}/show") }}" class="btn btn-info">Xem</a>
                                     <a href="{{ url("admin/products/{$product['id']}/edit") }}" class="btn btn-warning">Sửa</a>
                                     <a href="{{ url("admin/products/{$product['id']}/delete") }}" onclick="return confirm('Chắc chắn xóa không?');" class="btn btn-danger">Xóa</a>
                                 </td>
                             </tr>
                             @endforeach
-
+                            
                         </tbody>
                     </table>
                 </div>

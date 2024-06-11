@@ -57,4 +57,11 @@ class Product extends Model
             ->setParameter(0, $id)
             ->fetchAssociative();
     }
+    public function countAll()
+    {
+        return $this->queryBuilder
+            ->select('COUNT(*) as total')
+            ->from($this->tableName)
+            ->fetchOne();
+    }
 }

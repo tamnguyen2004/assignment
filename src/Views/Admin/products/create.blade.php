@@ -19,7 +19,16 @@
     @endif
 
     <form action="{{ url('admin/products/store') }}" enctype="multipart/form-data" method="POST">
-        <div class="row">
+    <div class="col-lg-12 mt-5">   
+    <div class="white_card card_height_100 mb_30">
+            <div class="white_card_header">
+                <div class="box_header m-0">
+                    <div class="main-title">
+                        <h2 class="m-0">New product</h2>
+                    </div>
+                </div>
+            </div> 
+    <div class="row">
             <div class="col-md-6">
                 <div class="mb-3 mt-3">
                     <label for="category_id" class="form-label">Category:</label>
@@ -56,6 +65,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    </div>
         
         <button type="submit" class="btn btn-primary mt-5">Submit</button>
     </form>

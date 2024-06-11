@@ -11,9 +11,12 @@ Slide
             <!-- Sale badge -->
             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
             <!-- Product image-->
+            <a href="{{ url("/client/products/{$product['id']}/show") }}"> <!-- Đảm bảo URL đúng cho trang client -->
             <img class="card-img-top" src="{{ asset($product['img_thumbnail']) }}" style="height: 260px; width: 100%;" alt="{{ $product['name'] }}" />
-            <!-- Product details-->
-            <div class="card-body p-4">
+        </a>
+            
+            <div class="card-body p-4"> 
+
                 <div class="text-center">
                     <!-- Product name-->
                     <h5 class="fw-bolder">{{ $product['name'] }}</h5>

@@ -103,5 +103,75 @@ class UserController extends Controller {
             exit;
         }
     }
-    
+    public function edit($id)
+    {
+        $user = $this->user->findByID($id);
+        $categories = $this->user->all();
+
+        $userPluck = array_column($categories, 'name', 'id');
+
+        $this->renderViewAdmin('users.edit', [
+            'user' => $user,
+            'categoryPluck' => $userPluck,
+        ]);
+    }
+
+    public function update($id)
+    {
+        $user = $this->user->findByID($id);
+
+        // VALIDATE
+        $validator = new Validator;
+        $validation = $validator->make($_POST + $_FILES, [
+            'name'                  => 'required|max:100',
+            'email' => 'required',
+            
+            
+            'avatar'         => 'uploaded_file:0,2048K,png,jpeg,jpg',
+        ]);
+        $validation->validate();
+
+        if ($validation->fails()) {
+            $_SESSION['errors'] = $validation->errors()->firstOfAll();
+
+            header('Location: ' . url("admin/users/$id/edit"));
+            exit;
+        } else {
+            $data = [
+                
+                'name'          => $_POST['name'],
+                'email'         => $_POST['email'],
+                
+                
+                'updated_at'    => date('Y-m-d H:i:s')
+            ];
+
+            if (!empty($_FILES['avater']) && $_FILES['avatar']['size'] > 0) {
+
+                $from = $_FILES['avatar']['tmp_name'];
+                $to   = 'assets/uploads/' . time() . $_FILES['avatar']['name'];
+
+                if (move_uploaded_file($from, PATH_ROOT . $to)) {
+                    $data['avatar'] = $to;
+                } else {
+                    $_SESSION['errors']['avatar'] = 'Upload KHÔNG thành công!';
+
+                    header('Location: ' . url("admin/products/$id/edit"));
+                    exit;
+                }
+            }
+
+            $this->user->update($id, $data);
+
+            if ($user['avatar'] && file_exists( PATH_ROOT . $user['avatar'] ) ) {
+                unlink(PATH_ROOT . $user['avatar']);
+            }
+
+            $_SESSION['status'] = true;
+            $_SESSION['msg'] = 'Thao tác thành công!';
+
+            header('Location: ' . url("admin/users/$id/edit"));
+            exit;
+        }
+    }
 }

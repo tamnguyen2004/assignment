@@ -23,6 +23,7 @@ $router->before('GET|POST', '/admin/*.*', function() {
 $router->mount('/admin', function () use ($router) {
 
     $router->get('/', DashboardController::class . '@dashboard');
+    
 
     // CRUD USER
     $router->mount('/products', function () use ($router) {
@@ -33,6 +34,8 @@ $router->mount('/admin', function () use ($router) {
         $router->get('/{id}/edit',      ProductController::class . '@edit');   // Show form sửa
         $router->post('/{id}/update',   ProductController::class . '@update'); // Lưu sửa vào DB
         $router->get('/{id}/delete',    ProductController::class . '@delete'); // Xóa
+
+
     });
     $router->mount('/users', function () use ($router) {
         $router->get('/',               UserController::class . '@index');  // Danh sách

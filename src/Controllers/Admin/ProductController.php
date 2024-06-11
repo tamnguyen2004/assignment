@@ -195,4 +195,12 @@ class ProductController extends Controller
         header('Location: ' . url('admin/products'));
         exit();
     }
+    public function countProducts()
+{
+    $totalProducts = $this->product->countAll();
+    $this->renderViewAdmin('admin.dashboard', [
+        'totalProducts' => $totalProducts
+    ]);
+}
+
 }
